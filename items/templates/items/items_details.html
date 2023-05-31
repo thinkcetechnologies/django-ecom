@@ -1,0 +1,34 @@
+{% extends 'items/base.html'%}
+{%block content%}
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7"> 
+                <img src="{{product.image.url}}" alt="" width='100%'> 
+            </div>      
+            <div class="col-sm-5">
+                <h6>{{product.title}}
+                    
+                <p>{{product.description}}</p>
+                <div>
+                    {% if product.discount_price %}
+                    <del>${{product.price}}</del>
+                    <p class="badge badge-warning">${{product.discount_price}}</p><br><br>
+                    {% else %}
+                        <p class="badge badge-warning">${{product.price}}</p><br><br>
+                    {% endif %}    
+                    <a href="{% url 'add-to-cart' product.slug %}" class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i><i> Add to cart</i></a>
+                    <a href="{% url 'remove-from-cart' product.slug %}" class="btn btn-outline-danger"><i class="fa fa-trash"></i><i> Remove from cart</i></a>
+             </div> 
+            </div> 
+        </div>
+    </div>
+</div>              
+                     
+
+                    
+              
+
+    
+
+    {%endblock%}

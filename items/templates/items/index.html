@@ -1,0 +1,46 @@
+{% extends 'items/base.html'%}
+{%block content%}
+<div class="jumbotron">
+    <h3 class="text-center text-primary">WELCOME TO GEE COLLECTIONS</h3>
+</div>
+<hr>
+<hr>
+<div class="container">
+    <div class="row">
+      {%for item in object_list%}
+        <div class="col-sm-4 mb-4">
+          <a href="{{item.get_absolute_url}}">
+              <div class="card text-left">
+                <img class="card-img-top" src="{{item.image.url}}" alt="">
+                <div class="card-body">
+                  <h4 class="card-title">{{item.title}}</h4>
+                  <strong class="badge badge-pill badge-warning">
+                      {% if item.discount_price %}
+                          ${{item.discount_price}}
+                      {% else %}
+                          ${{item.price}}
+                      {% endif %}
+                  
+                  </strong>
+                </div>
+              </div>
+        
+      </a>
+        </div>
+        {%endfor%}
+        </div>
+        </div>
+        {%endblock%}
+        
+    
+
+   
+
+        
+                
+                
+
+
+
+
+
